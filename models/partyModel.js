@@ -11,9 +11,11 @@ mongoose.connect(MONGO_URI, {
     .catch(err => console.log(err));
 
 
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
-const partySchema = new Schema({
+const Party = mongoose.model('Party', mongoose.Schema({
+
+// const partySchema = new Schema({
     uniqueKey: { type: String, unique: true },
     createdDate: { type: String },
     incidentAddress: { type: String },
@@ -23,9 +25,7 @@ const partySchema = new Schema({
     complaintType: { type: String },
     latitude: { type: String },
     longitude: { type: String }
-})
-
-const Party = mongoose.model('Party', partySchema)
+}))
 
 module.exports = Party
 
